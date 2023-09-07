@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>pageshow and resize Events</title>
+        <style>
+            body {
+                background-image: url("img1.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+            h1 {
+                color: #003366;
+                text-align: center;
+            }
+
+            p {
+                color: #333333;
+                border: 1px dotted #999999;
+                padding: 10px;
+                text-align: center;
+            }
+
+            span {
+                color: red;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+<body onpageshow="pageshow()">   
+    <h1 id="ay"></h1>    
+
+    <p>THE TEXT BELOW WILL COUNT HOW MANY TIMES YOU RESIZE THE WEB</p>
+
+    <p>WINDOW RESIZED <span id="res">0</span> TIMES.</p>
+
+<script>
+    function pageshow() {
+        document.getElementById("ay").innerHTML = "THIS TEXT IS SHOWN BY USING ONPAGESHOW EVENT";
+    }
+    window.addEventListener("resize", myFunction);
+
+    var x = 0;
+    function myFunction() {
+        var txt = x += 1;
+        document.getElementById("res").innerHTML = txt;
+    }
+</script>
+</body>
+</html>
